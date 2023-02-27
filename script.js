@@ -8,17 +8,33 @@ const createTask = (evento)  => {
         const task  = document.createElement(`li`);
         task.classList.add("card");
         input.value = "";
+
 // backticks
-const content =  `<div>
-<i class="far fa-check-square icon"></i>
-<span class="task">${value}</span>
-</div>
-<i class="fas fa-trash-alt trashIcon icon"></i>`
-task.innerHTML = content;
+const taskContent = document.createElement("div");
+taskContent.appendChild(checkComplete());
+const title =  document.createElement("span");
+title.task.classList.add("task");
+title.task.innerTex = value;
+taskContent.appendChild(titleTask);
+const content = `
+<i class="fas fa-trash-alt trashIcon icon"></i>`;
+//task.innerHTML = content;
+task.appendChild(taskContent);
 list.append(task );
 console.log(content );
 };
 
+
+// Arrow funciones anonimas
 console.log(btn);
 btn.addEventListener(`click` , createTask);
-// Arrow funciones anonimas
+
+
+const checkComplete = ( ) => {
+    const i = document.createElement("i");
+    i.classList.add("far");
+    i.classList.add("fa-check-square");
+    i.classList.add(" icon");
+    return i;
+}
+
