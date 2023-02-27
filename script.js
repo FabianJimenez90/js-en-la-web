@@ -1,4 +1,5 @@
-const  btn = document.querySelector(" [data-form-btn]");
+( ( ) => {
+    const  btn = document.querySelector(" [data-form-btn]");
 
 const createTask = (evento)  => {
     evento.preventDefault( );
@@ -12,29 +13,32 @@ const createTask = (evento)  => {
 // backticks
 const taskContent = document.createElement("div");
 taskContent.appendChild(checkComplete());
-const title =  document.createElement("span");
-title.task.classList.add("task");
-title.task.innerTex = value;
+const titleTask =  document.createElement("span");
+titleTask.classList.add("task");
+titleTask.innerText = value;
 taskContent.appendChild(titleTask);
 const content = `
 <i class="fas fa-trash-alt trashIcon icon"></i>`;
 //task.innerHTML = content;
 task.appendChild(taskContent);
 list.append(task );
-console.log(content );
+
 };
-
-
 // Arrow funciones anonimas
-console.log(btn);
+
 btn.addEventListener(`click` , createTask);
 
-
 const checkComplete = ( ) => {
-    const i = document.createElement("i");
-    i.classList.add("far");
-    i.classList.add("fa-check-square");
-    i.classList.add(" icon");
+    const i = document.createElement(`i`);
+    i.classList.add(`far`, `fa-check-square`, `icon` ); 
+    i.addEventListener(`click`, completeTask);
     return i;
 }
 
+const completeTask = ( event) => {
+    const element = event.target;
+    element.classList.toggle(`fas`);
+    element.classList.toggle(`completeIcon`);
+    element.classList.remove(`far`);
+}
+} ) ()
