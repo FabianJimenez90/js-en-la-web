@@ -1,10 +1,12 @@
 const  btn = document.querySelector(" [data-form-btn]");
 
-const crateTask = (evento)  => {
+const createTask = (evento)  => {
     evento.preventDefault( );
         const input = document.querySelector("[data-form-input]");
         const value = input.value
-        const task  = document.querySelector("[data-task]");
+        const list = document.querySelector("[data-list]");
+        const task  = document.createElement(`li`);
+        task.classList.add("card");
         input.value = "";
 // backticks
 const content =  `<div>
@@ -13,9 +15,10 @@ const content =  `<div>
 </div>
 <i class="fas fa-trash-alt trashIcon icon"></i>`
 task.innerHTML = content;
+list.append(task );
 console.log(content );
 };
-console.log(btn);
 
-btn.addEventListener(`click` , crateTask);
+console.log(btn);
+btn.addEventListener(`click` , createTask);
 // Arrow funciones anonimas
